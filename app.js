@@ -1,5 +1,4 @@
-const regex = /\+\d{1}\(\d{3}\)\d{3}-\d{4}/g;
-//^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+
 
 class User{
 	// Пользователь
@@ -20,7 +19,6 @@ if (!JSON.parse(localStorage.getItem("Admin"))) {
 	let adminQ = new User;
 	adminQ.name = "Admin";
 	adminQ.pass = "Admin1";
-	adminQ.telephone = "+7778334422"
 	localStorage.setItem("Admin", JSON.stringify(adminQ));
 }
 function checkAuthentication(){
@@ -34,7 +32,7 @@ function checkAuthentication(){
 	//document.getElementById("regErr").innerHTML = "Заполните все поля";
 
 
-	// SINGOUT НА <input class="button btn btn-warning" type="submit" value="Выход" onclick='+"logOut()"+' /> 
+	
 	document.getElementById("aututif").innerHTML = '<hr><input class="button btn btn-warning" type="submit" value="Кабинет пользователя" onclick='+"userPage()"+' />'
 	+' <input class="button btn btn-warning" type="submit" value="Выход" onclick='+"logOut()"+' />';
 }
@@ -114,7 +112,6 @@ function saveAccount() {
 			document.getElementById("passwordField").classList.remove('colorDefault');
 			document.getElementById("passwordField").classList.add('colorbtInput');
 			document.getElementById("passwordError").classList.add('colorbt');
-			//document.getElementById("regErr").innerHTML = "Имя пользователя должно быть больше 4 символов";
 			ccc = 0;
 		}
 
