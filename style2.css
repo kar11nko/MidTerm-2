@@ -19,7 +19,7 @@
   width: 30;
   height: 43px;
   top: 30px;
-  left: 35%;
+  left: 43%;
   right: 50%;
 }
 
@@ -60,6 +60,8 @@
   text-transform: none;
    text-align: center;
    text-decoration: none;
+   position: relative;
+   left: 10px;
 }
 
 .btn{
@@ -71,7 +73,7 @@
   background-color:#1877f2;
   border-radius: 500px;
   user-select: none;
-  left: 80px;
+  left: 300px;
   top: 10px;
 }
 
@@ -555,7 +557,7 @@ cursor: pointer;
   width:160px;
   height:50px ;
 
-  left: 140px;
+  left: 350px;
 }
 
 .signUpBtnTxt{
