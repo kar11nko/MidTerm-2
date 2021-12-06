@@ -1,0 +1,119 @@
+body{
+    font-family: Circular,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222326;
+}
+.textSpotify{
+    text-align: center;
+}
+#iconPart{
+    position: relative;
+}
+.iconIMG img{
+    position: relative;
+    left: 500px;
+}
+.container{
+    text-align: center;
+}
+.OR{
+    text-align: center;
+}
+label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.btn btn-block btn-facebook ng-binding{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    padding: 16px 48px 18px;
+    border-width: 0;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+}
+.btn btn-block btn-default btn-google ng-binding{
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    padding: 16px 48px 18px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border-width: 0;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+}
+.input{
+    text-align: center;
+}
+.btn{
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 10px;
+    padding: 7px 12px 5px;
+}
+.logIn{
+    background-color: green;
+}
+.btnSignUp{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    color: #616467;
+    box-shadow: inset 0 0 0 2px #616467;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    padding: 16px 48px 18px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    border-width: 0;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+}
+ a:focus, a:hover {
+    text-decoration: none;
+}
+.pass-forgot{
+    color: #15883e; 
+}
+h3{
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}

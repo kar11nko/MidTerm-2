@@ -1,0 +1,77 @@
+body > table{
+    width: 100%;
+}
+body{
+    background-image: url(https://www.campaigntr.com/v3/wp-content/uploads/2019/04/Spotify1-2.jpg);
+}
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    color: #a4133c;
+}
+.img{
+    text-align: center;
+}
+label{
+    font-family: sans-serif;
+    color: #fff0f3;
+    font-size: 20px;
+}
+table{
+    border-collapse: collapse;
+}
+table.list{
+    width:100%;
+}
+
+td, th {
+    border: 2px solid #ff758f;
+    text-align: left;
+    padding: 10px;
+}
+tr:nth-child(even),table.list thead>tr {
+    background-color:white;
+}
+
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ff758f;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    width: 20%;
+    background-color: #f9bec7;
+    color: #000;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form div.form-action-buttons{
+    text-align: right;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #ff8fa3;
+    margin-right: 4px;
+}
+
+label.validation-error{
+    color:   red;
+    margin-left: 5px;
+}
+
+.hide{
+    display:none;
+}

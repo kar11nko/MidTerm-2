@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+	<title>Admin page</title>
+	<style type="text/css">
+		.invisibility {
+			display: none;
+		}
+		.deleteRow {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2 class="mt-4">Hello Administrator!</h2> 
+		<input class="button btn btn-success" type="button" value="На главную" onclick='mainPage()' />
+		<hr>
+		<form class="form-group" name="myForm">
+			<label>Choose an action:</label>
+			<select class="selectTable form-control" name="selectTable">
+				<option value="">Select One …</option>
+				<option value="create">Create</option>
+				<option value="read">Read/Mute</option>
+				<option value="update">Update</option>
+				<option value="delete">Delete</option>
+			</select>
+		</form>
+		<div id="div1" class="invisibility">
+			<div class="form-group">
+				<label for="nameField">Name</label>
+				<input type="text" class="form-control" id="nameField" size="20" required>
+			</div>
+
+			<div class="form-group">
+				<label for="emailField">Email</label>
+				<input type="email" class="form-control" id="emailField" size="20" required>
+			</div>
+
+			<label>Gender</label>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="r1" id="exampleRadios1" value="option1" checked>
+				<label class="form-check-label" for="exampleRadios1">
+					Man
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="r1" id="exampleRadios2" value="option2">
+				<label class="form-check-label" for="exampleRadios2">
+					Woman
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="r1" id="exampleRadios3" value="option3">
+				<label class="form-check-label" for="exampleRadios3">
+					Other
+				</label>
+			</div>
+
+			<div class="form-group mt-3">
+				<label for="passField">Password</label>
+				<input type="text" class="form-control" id="passField" size="20" required>
+			</div>
+
+			<div class="form-group">
+				<label for="pass2Field">Password confirm</label>
+				<input type="text" class="form-control" id="pass2Field" size="20" required>
+			</div>
+			
+			<div id="regErr"></div>
+			<hr>
+			
+			<input class="button btn btn-success mb-4" type="button" value="Register" onclick='saveAccount()' /></div>
+			
+			<div id="div2" class="invisibility">
+				<hr>
+				<table id="tableMute" class="tableUsers table table-striped">
+					<tr>
+						<td>id</td>
+						<td>Name</td>
+						<td>Data</td>
+						<td>EMail</td>
+						<td>Gender</td>
+						<td>Mute</td>
+					</tr>
+				</table>
+			</div>
+			<div id="div3" class="invisibility"><br>Select user by email:
+				<form name="mailForm">
+					<select id="selectMail">
+						<option value="">Select One …</option>
+					</select>
+				</form>
+				<hr>
+				<table class="table table-striped">
+					<tr>
+						<td>key:</td>
+						<td><input type="text" id="reKeyField" size="20" readonly></td>
+					</tr>
+					<tr>
+						<td>name:</td>
+						<td><input type="text" id="reNameField" size="20"></td>
+					</tr>
+					<tr>
+						<td>mail:</td>
+						<td><input type="text" id="reEmailField" size="20"></td>
+					</tr>
+					<tr>
+						<td>gender:</td>
+						<td id="genderField"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="radio" name="r2" value="0">Male<br>
+							<input type="radio" name="r2" value="1">Female<br>
+							<input type="radio" name="r2" value="2">Non-binary<br></td>
+						</tr>
+						<tr>
+							<td>pass:</td>
+							<td><input type="text" id="rePassField" size="20"></td>
+						</tr>
+						<tr>
+							<td>pass confim:</td>
+							<td><input type="text" id="rePass2Field" size="20"></td>
+						</tr>
+						<tr>
+							<td>data:</td>
+							<td><input type="text" id="reDataField" size="20"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input class="button btn btn-success" type="button" value="Update user" onclick='reStorage()' /></td>
+						</tr>
+					</table>
+					<div id="searchErr"></div>
+
+				</div>
+				<div id="div4" class="invisibility">
+					<hr>
+					<table id="tableDel" class="tableUsers table table-striped">
+						<tr>
+							<td>id</td>
+							<td>Name</td>
+							<td>Data</td>
+							<td>EMail</td>
+							<td>Gender</td>
+							<td>Mute</td>
+						</tr>
+					</table></div>
+		</div>
+		<script type="text/javascript">
+			tableDel.addEventListener('click', function(evt){
+				// Событие нажатия на кнопку удаления
+				if(evt.target.closest('.deleteRow')) {
+					evt.target.closest('tr').remove()
+				}
+			})
+
+			function fillingSelect(){
+				// Cелектер емаилов 
+				var select = document.getElementById("selectMail"); 
+				var options = [];
+				counter=0;
+				for (var i = localStorage.length; i >= 0; i--) {
+				var user = JSON.parse(localStorage.getItem(i));
+			if (user) {
+				options[counter]=user.email;
+				counter++;
+			}}
+
+			for(var i = 0; i < options.length; i++) {
+			    var opt = options[i];
+			    var el = document.createElement("option");
+			    el.textContent = opt;
+			    el.value = opt;
+			    select.appendChild(el);
+
+			}}
+			var tabSelect = myForm.selectTable;
+			var emailSelect = mailForm.selectMail;
+
+			function disDiv(){
+				//Добавляет невидимость div при создании страницы
+				var div1 = document.getElementById("div1");
+				var div2 = document.getElementById("div2");
+				var div3 = document.getElementById("div3");
+				var div4 = document.getElementById("div4");
+				div1.classList.add("invisibility");
+				div2.classList.add("invisibility");
+				div3.classList.add("invisibility");
+				div4.classList.add("invisibility");
+			}
+
+			function disabledDiv(divV){
+				// убирает невидимость
+				var divVir = document.getElementById(divV);
+				divVir.classList.remove("invisibility");
+			}
+
+			function changeOption(){
+				// Действие при выборе в 1 селекторе
+			disDiv();
+			var selectedOption = tabSelect.options[tabSelect.selectedIndex];
+			if(tabSelect.value=="create"){
+				disabledDiv("div1");
+			}
+			if(tabSelect.value=="read"){
+				disabledDiv("div2");
+				reloadTable();
+				bus(true);
+
+			}
+			if(tabSelect.value=="update"){
+				disabledDiv("div3");
+			}
+			if(tabSelect.value=="delete"){
+				disabledDiv("div4");
+				reloadTable();
+				bus(true);
+			}
+		}
+
+			function changeOptionMail(){
+				// Действие при выборе в 1 селекторе
+			searchByEmail(emailSelect.value);
+			}
+
+		emailSelect.addEventListener("change", changeOptionMail);
+		tabSelect.addEventListener("change", changeOption);
+		fillingSelect();
+		bus(true);
+		//checkLogIn();
+	</script>
+</body>
+</html>
